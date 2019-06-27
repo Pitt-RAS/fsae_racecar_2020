@@ -3,7 +3,7 @@ Code for interfacing with Jetson and connecting remote ROS nodes
 
 These steps will explain how to deploy and execute new code on the teensy, and connect your ROS node to the Jetson.
 
-To upload new code to the teensy:
+**To upload new code to the teensy:**
 
 Prereqs: 
 
@@ -20,7 +20,7 @@ Teensy Loader (https://www.pjrc.com/teensy/loader.html)
 6. Click upload in the top left corner of the Arduino IDE. You may need to manually press the program button on the teensy (it depends what mood the teensy is in).
 
 
-To connect to the Jetson and start the ros stuff:
+**To connect to the Jetson and start the ros stuff:**
 1. Clone repo 
    `git clone https://github.com/Pitt-RAS/fsae_racecar_2020.git`
 2. `cd /PATH/TO/REPO`
