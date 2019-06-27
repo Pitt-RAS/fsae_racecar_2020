@@ -15,39 +15,39 @@ static long int encoder_total = 0;                          // A+B+C
 static long int encoder_last_total = 0;
 static int encoder_delta = 0;
 
-// flipping the in/decrements around for now because we're counting backwards.
-// TODO its late so come back and fix this l8r
+// forwards would go A C B A C B ...
+// backwards would go A B C A B C ...
 static void isr_A(){
-    // if last phase triggered was C, increment; else decrement (because we went backwards)
-    if (last_isr == 3){
-        encoder_count_A--;
+    // if last phase triggered was B, increment; else decrement (because we went backwards)
+    if (last_isr == 2){
+        encoder_count_A++;
     }
     else{
-        encoder_count_A++;
+        encoder_count_A--;
     }
     
     last_isr = 1;
 }
 
 static void isr_B(){
-    // if last phase triggered was A, increment; else decrement (backwards)
-    if (last_isr == 1){
-        encoder_count_B--;
+    // if last phase triggered was C, increment; else decrement (backwards)
+    if (last_isr == 3){
+        encoder_count_B++;
     }
     else{
-        encoder_count_B++;
+        encoder_count_B--;
     }
 
     last_isr = 2;
 }
 
 static void isr_C(){
-    // if last phase triggered was B, increment; else decrement (backwards)
-    if (last_isr == 2){
-        encoder_count_C--;
+    // if last phase triggered was A, increment; else decrement (backwards)
+    if (last_isr == 1){
+        encoder_count_C++;
     }
     else{
-        encoder_count_C++;
+        encoder_count_C--;
     }
 
     last_isr = 3;
