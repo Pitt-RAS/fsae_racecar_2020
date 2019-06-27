@@ -115,8 +115,8 @@ void EncoderPublisher::Update(bool noop) {
 double EncoderPublisher::compute_distance(int steps){
     double operand = steps;
     operand = operand / STEPS_PER_REV;                  // 6 steps per revolution (motor)
-    operand = operand / (87/18);            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
-    operand = operand / 3;                  // 3 big gear revolutions per 1 wheel revolution
+    operand = operand / GEAR_RATIO;            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
+    operand = operand / BIG_GEAR_TO_WHEEL_RATIO;                  // 3 big gear revolutions per 1 wheel revolution
     // at this point operand = wheel revolutions in timeframe
 
     operand = operand * (PI * WHEEL_DIAMETER_IN);   // total distance driven
@@ -125,12 +125,13 @@ double EncoderPublisher::compute_distance(int steps){
 
 // pass encoder_delta
 float EncoderPublisher::compute_velocity(int delta){
-    delta = delta / STEPS_PER_REV;         // 6 delta per revolution (motor)
-    delta = delta / GEAR_RATIO; // gear ratio (87 teeth on big gear / 18 teeth on small gear)
-    delta = delta / BIG_GEAR_TO_WHEEL_RATIO;         // 3 big gear revolutions per 1 wheel revolution
-    // at this point delta = wheel revolutions in timeframe
+    float operand = delta;
+    operand = operand / STEPS_PER_REV;         // 6 operand per revolution (motor)
+    operand = operand / GEAR_RATIO; // gear ratio (87 teeth on big gear / 18 teeth on small gear)
+    operand = operand / BIG_GEAR_TO_WHEEL_RATIO;         // 3 big gear revolutions per 1 wheel revolution
+    // at this point operand = wheel revolutions in timeframe
 
-    delta = delta * (PI * WHEEL_DIAMETER_IN); // distance driven from (t2 - t1)
-    delta = delta * ENCODER_UPDATE_HZ;        // delta = inches/second
-    return delta;
+    operand = operand * (PI * WHEEL_DIAMETER_IN); // distance driven from (t2 - t1)
+    operand = operand * ENCODER_UPDATE_HZ;        // operand = inches/second
+    return operand;
 }
