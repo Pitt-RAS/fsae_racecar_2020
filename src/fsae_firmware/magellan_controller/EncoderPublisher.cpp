@@ -81,8 +81,8 @@ EncoderPublisher::EncoderPublisher(ros::NodeHandle& nh) :
     nh.advertise(velocity_publisher_);                      
     nh.advertise(encoder_count_publisher_);                 
 
-    twist_msg_.header.frame_id = "base_link";               // TODO
-    twist_msg_.twist.covariance[0] = kVelocityVariance;     // TODO
+    twist_msg_.header.frame_id = "base_link";               
+    twist_msg_.twist.covariance[0] = kVelocityVariance;     
 }
 
 void EncoderPublisher::Update(bool noop) {
@@ -96,6 +96,7 @@ void EncoderPublisher::Update(bool noop) {
         
         sei();                                              // start isrs
 
+        // TODO: Publish correct information to correct topics
         double distance = compute_distance(encoder_total);
         twist_msg_.header.stamp = nh_.now();
         twist_msg_.twist.twist.linear.x = distance;
@@ -112,21 +113,21 @@ void EncoderPublisher::Update(bool noop) {
 
 // pass encoder_total
 double EncoderPublisher::compute_distance(int steps){
-    double tempFix = steps;
-    tempFix = tempFix / 6;                  // 6 steps per revolution (motor)
-    tempFix = tempFix / (87/18);            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
-    tempFix = tempFix / 3;                  // 3 big gear revolutions per 1 wheel revolution
-    // at this point steps = wheel revolutions in timeframe
+    double operand = steps;
+    operand = operand / STEPS_PER_REV;                  // 6 steps per revolution (motor)
+    operand = operand / (87/18);            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
+    operand = operand / 3;                  // 3 big gear revolutions per 1 wheel revolution
+    // at this point operand = wheel revolutions in timeframe
 
-    tempFix = tempFix * (PI * WHEEL_DIAMETER_IN);   // total distance driven
-    return tempFix;
+    operand = operand * (PI * WHEEL_DIAMETER_IN);   // total distance driven
+    return operand;
 }
 
 // pass encoder_delta
 float EncoderPublisher::compute_velocity(int delta){
-    delta = delta / 6;         // 6 delta per revolution (motor)
-    delta = delta / (87 / 18); // gear ratio (87 teeth on big gear / 18 teeth on small gear)
-    delta = delta / 3;         // 3 big gear revolutions per 1 wheel revolution
+    delta = delta / STEPS_PER_REV;         // 6 delta per revolution (motor)
+    delta = delta / GEAR_RATIO; // gear ratio (87 teeth on big gear / 18 teeth on small gear)
+    delta = delta / BIG_GEAR_TO_WHEEL_RATIO;         // 3 big gear revolutions per 1 wheel revolution
     // at this point delta = wheel revolutions in timeframe
 
     delta = delta * (PI * WHEEL_DIAMETER_IN); // distance driven from (t2 - t1)

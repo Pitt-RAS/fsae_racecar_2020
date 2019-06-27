@@ -1,7 +1,11 @@
 #ifndef ENCODER_PUBLISHER_H
 #define ENCODER_PUBLISHER_H
 
-#define WHEEL_DIAMETER_IN 4.25 //inches
+// constants for quik maffs
+#define WHEEL_DIAMETER_IN 4.25          //inches
+#define STEPS_PER_REV 6                 // 6 steps per full revolution of rotor
+#define GEAR_RATIO (87 / 18)            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
+#define BIG_GEAR_TO_WHEEL_RATIO 3       // this accounts for the differential afaik
 
 #include <ros.h>
 #include <geometry_msgs/TwistWithCovarianceStamped.h>
