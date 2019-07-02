@@ -1,0 +1,12 @@
+<launch>
+<!--    <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+        <param name="linearUpdate" type="double" value="0.5" />
+        <param name="particles" type="double" value="50" />
+    </node> -->
+    
+    <node pkg="map_server" name="map_server" type="map_server" args="/maps/benedum_hall_straight.yaml" />
+    <node pkg="amcl" name="amcl" type="amcl">
+        <param name="odom_model_type" value="diff_corrected" />
+        <param name="laser_max_beams" type="int" value="60" />
+    </node>
+</launch>

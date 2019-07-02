@@ -1,0 +1,9 @@
+<launch>
+   <node pkg="tf2_ros" type="static_transform_publisher" name="laser_link_broadcaster" args="0.158 0 0.155 3.14 0 0 base_link laser" />
+   <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+        <param name="linearUpdate" type="double" value="-1" />
+        <param name="angularUpdate" type="double" value="-1" />
+        <param name="temporalUpdate" type="double" value="1" />
+        <param name="particles" type="double" value="50" />
+    </node>
+</launch>

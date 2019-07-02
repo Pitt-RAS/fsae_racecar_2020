@@ -1,0 +1,5 @@
+<launch> 
+    <node name="fake_sensors" pkg="magellan_core" type="fake_sensors.py">
+        <rosparam command="load" file="$(find magellan_core)/params/fake_obstacles.yaml" />
+    </node>
+</launch>

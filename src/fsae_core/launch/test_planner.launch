@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="magellan_motion" type="path_planner_node" name="path_planner">
+    </node>
+
+    <node pkg="magellan_motion" type="fake_obstacles.py" name="fake_obstacles">
+    </node>
+
+    <node pkg="magellan_gameplay" type="game.py" name="game">
+    </node>
+</launch>
