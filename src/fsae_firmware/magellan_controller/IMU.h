@@ -5,7 +5,7 @@
 #include <Adafruit_BNO055.h>
 #include <sensor_msgs/Imu.h>
 #include <geometry_msgs/Quaternion.h>
-#include <magellan_core/IMUState.h>
+#include <fsae_core/IMUState.h>
 
 class IMU {
 public:
@@ -18,7 +18,7 @@ private:
     ros::Publisher imu_state_publisher_;
     Adafruit_BNO055 imu_;
     sensor_msgs::Imu imu_msg_;
-    magellan_core::IMUState imu_state_msg_;
+    fsae_core::IMUState imu_state_msg_;
     adafruit_bno055_offsets_t sensor_offsets_;
     // IMU constants
     const int16_t ACCEL_X = -7;
