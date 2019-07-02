@@ -3,6 +3,8 @@ FROM ros:melodic
 COPY . /robot
 WORKDIR /robot
 
+RUN apt-get update
+
 RUN bash -c "source /opt/ros/melodic/setup.bash && \
              rosdep install --from-paths src --ignore-src -y && \
              catkin_make && \
