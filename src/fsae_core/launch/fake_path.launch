@@ -1,0 +1,5 @@
+<launch> 
+    <node name="fake_path" pkg="magellan_core" type="fake_path.py">
+        <rosparam command="load" file="$(find magellan_core)/params/fake_path.yaml" />
+    </node>
+</launch>
