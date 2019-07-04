@@ -4,13 +4,13 @@
     </node>
     <node pkg="tf2_ros" type="static_transform_publisher" name="imu_link_broadcaster" args="0 0 0 1.57 0 0 base_link imu" />
 
-    <node pkg="magellan_core" type="viz_turning_radius.py" name="viz_turning_radius" />
+    <node pkg="fsae_core" type="viz_turning_radius.py" name="viz_turning_radius" />
 
-    <!--<include file="$(find magellan_core)/launch/gps.launch" />-->
-    <include file="$(find magellan_core)/launch/localization.launch" />
-    <!--<include file="$(find magellan_core)/launch/gps_localization.launch" />-->
-    <!--<include file="$(find magellan_core)/launch/lidar.launch" />-->
-    <include file="$(find magellan_core)/launch/navigation.launch" />
-    <include file="$(find magellan_core)/launch/fake_path.launch" />
-    <!--<include file="$(find magellan_core)/launch/camera.launch" />-->
+    <!--<include file="$(find fsae_core)/launch/gps.launch" />-->
+    <include file="$(find fsae_core)/launch/localization.launch" />
+    <!--<include file="$(find fsae_core)/launch/gps_localization.launch" />-->
+    <!--<include file="$(find fsae_core)/launch/lidar.launch" />-->
+    <include file="$(find fsae_core)/launch/navigation.launch" />
+    <include file="$(find fsae_core)/launch/fake_path.launch" />
+    <!--<include file="$(find fsae_core)/launch/camera.launch" />-->
 </launch>
