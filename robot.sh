@@ -72,7 +72,7 @@ case $1 in
             --net host \
             -v /dev/bus/usb:/dev/bus/usb \
             ${IMAGE_NAME}:teensy \
-            /robot/src/magellan_firmware/download.sh
+            /robot/src/fsae_firmware/download.sh
 
         docker rmi ${IMAGE_NAME}:teensy
     ;;
