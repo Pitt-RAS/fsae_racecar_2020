@@ -1,7 +1,7 @@
 
 # Firmware Execution Instructions #
 
-These steps will explain how to deploy and execute new code on the teeny using the Arduino IDE, as well as integrate it with the Jetson.
+These steps will explain how to upload and run code on the teeny using the Arduino IDE, as well as integrate it with the Jetson.
 
 ## Uploading Code to the Teensy ##
 
