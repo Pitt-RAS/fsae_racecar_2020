@@ -97,7 +97,7 @@ void EncoderPublisher::Update(bool noop) {
         sei();                                              // start isrs
 
         // TODO: Publish correct information to correct topics
-        double velocity = compute_velocity(encoder_delta);
+        float velocity = compute_velocity(encoder_delta);
         twist_msg_.header.stamp = nh_.now();
         twist_msg_.twist.twist.linear.x = velocity;
 
