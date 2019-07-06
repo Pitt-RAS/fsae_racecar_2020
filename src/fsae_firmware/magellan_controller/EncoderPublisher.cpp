@@ -119,7 +119,7 @@ double EncoderPublisher::compute_distance(int steps){
     operand = operand / BIG_GEAR_TO_WHEEL_RATIO;                  // 3 big gear revolutions per 1 wheel revolution
     // at this point operand = wheel revolutions in timeframe
 
-    operand = operand * (PI * WHEEL_DIAMETER_IN);   // total distance driven
+    operand = operand * (PI * WHEEL_DIAMETER_METERS);   // total distance driven
     return operand;
 }
 
@@ -131,7 +131,7 @@ float EncoderPublisher::compute_velocity(int delta){
     operand = operand / BIG_GEAR_TO_WHEEL_RATIO;         // 3 big gear revolutions per 1 wheel revolution
     // at this point operand = wheel revolutions in timeframe
 
-    operand = operand * (PI * WHEEL_DIAMETER_IN); // distance driven from (t2 - t1)
+    operand = operand * (PI * WHEEL_DIAMETER_METERS); // distance driven from (t2 - t1)
     operand = operand * ENCODER_UPDATE_HZ;        // operand = inches/second
     return operand;
 }

@@ -2,9 +2,9 @@
 #define ENCODER_PUBLISHER_H
 
 // constants for quik maffs
-#define WHEEL_DIAMETER_IN 4.25          //inches
+#define WHEEL_DIAMETER_METERS 0.10795       // meter
 #define STEPS_PER_REV 6                 // 6 steps per full revolution of rotor
-#define GEAR_RATIO (87 / 18)            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
+constexpr double GEAR_RATIO  = 87 / 18;            // gear ratio (87 teeth on big gear / 18 teeth on small gear)
 #define BIG_GEAR_TO_WHEEL_RATIO 3       // this accounts for the differential afaik
 
 #include <ros.h>

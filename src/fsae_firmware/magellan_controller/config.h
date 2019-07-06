@@ -19,7 +19,7 @@ extern RobotState currentState;
 // Loop rates
 #define MAIN_LOOP_HZ 100
 #define XBEE_LOOP_HZ 3
-#define ENCODER_UPDATE_HZ 5
+#define ENCODER_UPDATE_HZ 60
 #define DEBUG_HZ 5
 
 #define ESC_PWM 3 // Throttle
