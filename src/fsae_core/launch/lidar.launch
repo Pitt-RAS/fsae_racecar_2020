@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="laser_link_broadcaster" args="0.158 0 0.155 3.14 0 0 base_link laser" />
+    <node pkg="rplidar_ros" type="rplidarNode" name="rplidar">
+        <param name="frame_id" type="string" value="laser"/>
+        <param name="angle_compensate" type="bool" value="true"/>
+    </node>
+</launch>
