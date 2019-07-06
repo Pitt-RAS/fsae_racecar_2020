@@ -1,0 +1,1 @@
+ObstacleStamped[] obstacles

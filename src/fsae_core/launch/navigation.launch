@@ -1,0 +1,14 @@
+<launch>
+    <node pkg="magellan_motion" type="path_follower_node" name="path_follower">
+        <param name="~lookahead_distance" type="double" value="1.5" />
+        <param name="~lookahead_multiplier" type="double" value="0" />
+        <param name="~discretization" type="double" value="0.1" />
+        <param name="~max_vel" type="double" value="3.0" />
+        <param name="~max_acc" type="double" value="0.2" />
+        <param name="~turn_velocity_multiplier" type="double" value="1.0" />
+
+        <param name="~max_vel_safe" type="double" value="0.6" />
+        <param name="~max_vel_fast" type="double" value="0.6" />
+        <param name="~max_vel_bananas" type="double" value="0.6" />
+    </node>
+</launch>

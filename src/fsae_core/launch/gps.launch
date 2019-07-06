@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="nmea_navsat_driver" type="nmea_serial_driver" name="navsat">
+        <param name="port" value="/dev/ttyUSB0" />
+        <param name="baud" value="9600" />
+        <param name="tf_prefix" value="" />
+        <param name="frame_id" value="base_link" />
+        <remap from="/fix" to="/gps/fix" />
+        <remap from="/vel" to="/gps/vel" />
+    </node>
+</launch>

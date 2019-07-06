@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find magellan_core)/launch/passive.launch" />
+    <include file="$(find magellan_gameplay)/launch/main.launch" />
+</launch>

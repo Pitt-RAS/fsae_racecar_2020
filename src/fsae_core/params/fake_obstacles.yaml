@@ -1,0 +1,15 @@
+# to add another fake obstacle, add 
+# entry in yaml below
+fake_obstacles: 
+    obstacle_1: 
+        id: 'obst_1'
+        x: 5.0
+        y: 5.0
+        width: 4.5
+        length: 8.2
+    obstacle_2: 
+        id: 'obst_2'
+        x: 7.5
+        y: 2.0
+        width: 3.0
+        length: 1.0

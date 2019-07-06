@@ -1,0 +1,2 @@
+WaypointStamped[] waypoints
+
