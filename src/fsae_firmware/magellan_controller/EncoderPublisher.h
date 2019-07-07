@@ -27,8 +27,8 @@ private:
     long int last_count_A;
     long int last_count_B;
     long int last_count_C;
-    double compute_distance(int steps);
-    float compute_velocity(int delta);
+    double compute_distance(double steps);
+    double compute_velocity(double delta);
 };
 
 #endif

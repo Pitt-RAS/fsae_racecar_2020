@@ -126,7 +126,7 @@ double EncoderPublisher::compute_distance(double steps){
 
 // TODO: Test velocity accuracy with ekf pos
 // pass encoder_delta
-float EncoderPublisher::compute_velocity(float delta){
+double EncoderPublisher::compute_velocity(double delta){
     delta = delta / STEPS_PER_REV;                   // 6 delta per revolution (motor)
     delta = delta / GEAR_RATIO;                      // gear ratio (87 teeth on big gear / 18 teeth on small gear)
     delta = delta / BIG_GEAR_TO_WHEEL_RATIO;         // 3 big gear revolutions per 1 wheel revolution
