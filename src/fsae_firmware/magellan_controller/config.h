@@ -38,11 +38,11 @@ extern RobotState currentState;
 #define RUN_BUTTON 21
 
 
-
+// TODO: Measure and change vars accordingly
 // Distance from front wheel to back wheel
-const constexpr double kTrackLength = 0.3175;
+const constexpr double kTrackLength = 0.39; // 39 cm
 // Distance from left wheel to right wheel
-const constexpr double kTrackWidth = 0.24;
+const constexpr double kTrackWidth = 0.31;  // 31 cm
 // Max velocity
 const constexpr double kMaxVelocity = 3.0;
 
